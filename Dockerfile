@@ -16,6 +16,7 @@ USER novetus
 RUN WINEDEBUG=-all wineboot --init 
 RUN winecfg /v winxp 
 RUN wine reg add "HKCU\\Software\\Wine\\Drivers" /v Audio /d "null" 
+RUN wine reg add "HKCU\\Software\\Wine\\Drivers" /v Graphics /d "wayland" 
 RUN wineserver -w
 COPY --chown=novetus:novetus .config /home/novetus/.config
 COPY --chown=novetus:novetus novetus/data /home/novetus/novetus
