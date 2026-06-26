@@ -30,3 +30,6 @@ ENV NOVETUS_CLIENT="2012M" \
 VOLUME /opt/place.rbxl
 EXPOSE 5900
 ENTRYPOINT ["/opt/entry.sh"]
+
+# Make sure that RobloxApp is running, and if not then reboot the container.
+HEALTHCHECK ["pgrep",  "RobloxApp_serv"]
